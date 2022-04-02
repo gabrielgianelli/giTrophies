@@ -20,4 +20,18 @@ export class StreakCalculatorService {
         }
         return streak;
     }
+
+    static maxStreak(contributionsByDayList: ContributionByDayTotalizers[]): number {
+        let nextDay = contributionsByDayList[0].date;
+        let streak = 0;
+        let maxStreak = 0;
+        for (let contribution of contributionsByDayList) {
+            if (streak > maxStreak) maxStreak = streak;
+            const { date, numberOfContributions } = contribution;
+            if (date.getTime() === nextDay.getTime() && numberOfContributions > 0) streak++;
+            else streak = 0;
+            nextDay.setDate(nextDay.getDate() + 1);
+        }
+        return maxStreak;
+    }
 }
