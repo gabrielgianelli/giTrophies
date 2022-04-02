@@ -1,0 +1,8 @@
+{
+    "list": [
+        { "date": "2022-03-29T03:00:00.000Z", "numberOfContributions": "0" },
+        { "date": "2022-03-30T03:00:00.000Z", "numberOfContributions": "1" },
+        { "date": "2022-03-31T03:00:00.000Z", "numberOfContributions": "1" },
+        { "date": "2022-04-01T03:00:00.000Z", "numberOfContributions": "0" }
+    ]
+}
