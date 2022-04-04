@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tsc && npx mocha -w --parallel dist/**/*.test.js"
+    "test": "tsc && npx mocha -w --parallel dist/**/*.test.js",
+    "test:cov": "tsc && npx nyc npx mocha --parallel dist/**/*.test.js"
   },
   "repository": {
     "type": "git",
