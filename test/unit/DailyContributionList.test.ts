@@ -6,8 +6,8 @@ import twoDayStreak from './../mocks/TwoDaysStreak.json';
 import threeDaysStreakIncludingToday from './../mocks/ThreeDaysStreakIncludingToday.json';
 import fourDaysStreakWithMissingDay from './../mocks/FourDaysStreakWithMissingDay.json';
 import sevenDaysMaxStreak from './../mocks/SevenDaysMaxStreak.json';
-import DailyContributionList from '../../src/entities/DailyContributionList';
-import DailyContribution from '../../src/entities/DailyContribution';
+import DailyContribution from '../../src/streak/entity/DailyContribution';
+import DailyContributionList from '../../src/streak/entity/DailyContributionList';
 
 describe('Streak Suite Tests', () => {
     let sandbox: SinonSandbox;
