@@ -1,4 +1,5 @@
 import cheerio from 'cheerio';
+import DailyContributionWebScrapper from './DailyContributionWebScrapper';
 import DailyContribution from './entity/DailyContribution';
 
 const GITHUB_CONTRIBUTION_CLASS = '.ContributionCalendar-day';
@@ -6,8 +7,8 @@ const GITHUB_CONTRIBUTION_DATE = 'date';
 const GITHUB_CONTRIBUTION_DATE_SEPARATOR = '-';
 const GITHUB_CONTRIBUTION_TOTAL = 'count';
 
-export default class DailyContributionListWebScrapper {
-    static execute(htmlBody: string): DailyContribution[] {
+export default class DailyContributionWebScrapperCheerioAdapter implements DailyContributionWebScrapper {
+    execute(htmlBody: string): DailyContribution[] {
         const $ = cheerio.load(htmlBody);
         const data = $(GITHUB_CONTRIBUTION_CLASS);
         const contributions = data.get()
