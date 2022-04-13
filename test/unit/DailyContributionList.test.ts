@@ -6,7 +6,6 @@ import twoDayStreak from './../mocks/TwoDaysStreak.json';
 import threeDaysStreakIncludingToday from './../mocks/ThreeDaysStreakIncludingToday.json';
 import fourDaysStreakWithMissingDay from './../mocks/FourDaysStreakWithMissingDay.json';
 import sevenDaysMaxStreak from './../mocks/SevenDaysMaxStreak.json';
-import DailyContribution from '../../src/streak/entity/DailyContribution';
 import DailyContributionList from '../../src/streak/entity/DailyContributionList';
 
 describe('Streak Suite Tests', () => {
@@ -22,10 +21,11 @@ describe('Streak Suite Tests', () => {
 
     it('should get contribution streak, given an ordered list of objects containing date and number of contributions', () => {
         const dailyContributions = twoDayStreak.list.map(contribution => (
-            new DailyContribution(
-                new Date(contribution.date), 
-                parseInt(contribution.totalContributions)
-        )));
+            {
+                date: new Date(contribution.date), 
+                totalContributions: parseInt(contribution.totalContributions)
+            }
+        ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
         sandbox.useFakeTimers(now.getTime());
@@ -45,10 +45,11 @@ describe('Streak Suite Tests', () => {
 
     it('should get contribution streak including today if the current day already have contributions', () => {
         const dailyContributions = threeDaysStreakIncludingToday.list.map(contribution => (
-            new DailyContribution(
-                new Date(contribution.date), 
-                parseInt(contribution.totalContributions)
-        )));
+            {
+                date: new Date(contribution.date), 
+                totalContributions: parseInt(contribution.totalContributions)
+            }
+        ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
         sandbox.useFakeTimers(now.getTime());
@@ -59,10 +60,11 @@ describe('Streak Suite Tests', () => {
 
     it('should break the current streak when a day of the sequence is missing', () => {
         const dailyContributions = fourDaysStreakWithMissingDay.list.map(contribution => (
-            new DailyContribution(
-                new Date(contribution.date), 
-                parseInt(contribution.totalContributions)
-        )));
+            {
+                date: new Date(contribution.date), 
+                totalContributions: parseInt(contribution.totalContributions)
+            }
+        ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
         sandbox.useFakeTimers(now.getTime());
@@ -73,10 +75,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get the max contribution streak, given an ordered list of objects containing date and number of contributions', () => {
         const dailyContributions = sevenDaysMaxStreak.list.map(contribution => (
-            new DailyContribution(
-                new Date(contribution.date),
-                parseInt(contribution.totalContributions)
-            )
+            {
+                date: new Date(contribution.date),
+                totalContributions: parseInt(contribution.totalContributions)
+            }
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const expected = 7;
