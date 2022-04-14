@@ -1,12 +1,11 @@
 import { beforeEach, describe, it } from 'mocha';
 import { expect } from 'chai';
 import sinon, { SinonSandbox } from 'sinon';
-
 import twoDayStreak from './../mocks/TwoDaysStreak.json';
 import threeDaysStreakIncludingToday from './../mocks/ThreeDaysStreakIncludingToday.json';
 import fourDaysStreakWithMissingDay from './../mocks/FourDaysStreakWithMissingDay.json';
 import sevenDaysMaxStreak from './../mocks/SevenDaysMaxStreak.json';
-import DailyContributionList from '../../src/streak/entity/DailyContributionList';
+import DailyContributionList from '../../src/streak/domain/entity/DailyContributionList';
 
 describe('Streak Suite Tests', () => {
     let sandbox: SinonSandbox;

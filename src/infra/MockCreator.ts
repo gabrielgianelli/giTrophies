@@ -1,4 +1,4 @@
-import DailyContributionWebScrapperCheerioAdapter from "../streak/DailyContributionWebScrapperCheerioAdapter"
+import WebScrapperCheerioAdapter from "../streak/WebScrapperCheerioAdapter";
 import CreateGithubProfileDailyContributionList from "../utils/CreateGithubProfileDailyContributionList";
 
-new CreateGithubProfileDailyContributionList(new DailyContributionWebScrapperCheerioAdapter());
+new CreateGithubProfileDailyContributionList(new WebScrapperCheerioAdapter());

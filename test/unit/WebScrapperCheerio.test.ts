@@ -2,14 +2,14 @@ import { describe, beforeEach, it } from 'mocha';
 import { expect } from 'chai';
 import profile from '../mocks/GithubProfileBody.json';
 import profileDailyContributionList from '../mocks/GithubProfileDailyContributionList.json';
-import DailyContributionWebScrapper from '../../src/streak/DailyContributionWebScrapper';
-import DailyContributionWebScrapperCheerioAdapter from '../../src/streak/DailyContributionWebScrapperCheerioAdapter';
+import WebScrapper from '../../src/streak/WebScrapper';
+import WebScrapperCheerioAdapter from '../../src/streak/WebScrapperCheerioAdapter';
 
 describe('Web Scrapper Suite Tests', () => {
-    let webScrapper: DailyContributionWebScrapper;
+    let webScrapper: WebScrapper;
 
     beforeEach(() =>{
-        webScrapper = new DailyContributionWebScrapperCheerioAdapter();
+        webScrapper = new WebScrapperCheerioAdapter();
     });
 
     it('should get a list of daily contributions from the body of html of github profile', () => {
@@ -19,8 +19,7 @@ describe('Web Scrapper Suite Tests', () => {
                 totalContributions: contribution.totalContributions
             }
         ));
-        const result = webScrapper.execute(profile.body);
-        console.log(expected)
+        const result = webScrapper.dailyContributions(profile.body);
         expect(result).to.be.deep.equal(expected);
     });
 });
