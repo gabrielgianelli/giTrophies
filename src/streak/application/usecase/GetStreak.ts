@@ -1,7 +1,7 @@
 import GetStreakInputDTO from "../dto/GetStreakInputDTO";
 import GetStreakOutputDTO from "../dto/GetStreakOutputDTO";
 import Client from "../../infra/http/Client";
-import WebScrapper from "../../WebScrapper";
+import WebScrapper from "../../infra/webscrapper/WebScrapper";
 import DailyContributionList from "../../domain/entity/DailyContributionList";
 
 export default class GetStreak {

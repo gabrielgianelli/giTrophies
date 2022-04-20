@@ -2,8 +2,8 @@ import { describe, beforeEach, it } from 'mocha';
 import { expect } from 'chai';
 import profile from '../mocks/GithubProfileBody.json';
 import profileDailyContributionList from '../mocks/GithubProfileDailyContributionList.json';
-import WebScrapper from '../../src/streak/WebScrapper';
-import WebScrapperCheerioAdapter from '../../src/streak/WebScrapperCheerioAdapter';
+import WebScrapper from '../../src/streak/infra/webscrapper/WebScrapper';
+import WebScrapperCheerioAdapter from '../../src/streak/infra/webscrapper/WebScrapperCheerioAdapter';
 
 describe('Web Scrapper Suite Tests', () => {
     let webScrapper: WebScrapper;

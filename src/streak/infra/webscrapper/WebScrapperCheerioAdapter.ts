@@ -1,6 +1,6 @@
 import cheerio from 'cheerio';
 import WebScrapper from './WebScrapper';
-import DailyContribution from './domain/entity/DailyContribution';
+import DailyContribution from '../../domain/entity/DailyContribution';
 
 const GITHUB_CONTRIBUTION_CLASS = '.ContributionCalendar-day';
 const GITHUB_CONTRIBUTION_DATE = 'date';

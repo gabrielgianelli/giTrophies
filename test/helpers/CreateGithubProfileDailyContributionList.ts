@@ -1,6 +1,6 @@
 import fs from 'fs';
 import profile from '../../test/mocks/GithubProfileBody.json';
-import WebScrapper from '../../src/streak/WebScrapper';
+import WebScrapper from '../../src/streak/infra/webscrapper/WebScrapper';
 
 export default class CreateGithubProfileDailyContributionList {
     constructor(private webScrapper: WebScrapper) {

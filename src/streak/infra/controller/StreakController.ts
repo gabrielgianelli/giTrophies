@@ -1,5 +1,5 @@
 import Client from "../http/Client";
-import WebScrapper from "../../WebScrapper";
+import WebScrapper from "../webscrapper/WebScrapper";
 import GetStreak from "../../application/usecase/GetStreak";
 import GetStreakOutputDTO from "../../application/dto/GetStreakOutputDTO";
 

@@ -1,6 +1,6 @@
 import StreakController from "../../../streak/infra/controller/StreakController";
 import Client from "../../../streak/infra/http/Client";
-import WebScrapper from "../../../streak/WebScrapper";
+import WebScrapper from "../../../streak/infra/webscrapper/WebScrapper";
 import Server from "./Server";
 
 export default class Router {

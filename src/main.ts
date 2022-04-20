@@ -1,6 +1,6 @@
 import ServerExpressAdapter from "./shared/infra/http/ServerExpressAdapter";
 import ClientAxiosAdapter from "./streak/infra/http/ClientAxiosAdapter";
-import WebScrapperCheerioAdapter from "./streak/WebScrapperCheerioAdapter";
+import WebScrapperCheerioAdapter from "./streak/infra/webscrapper/WebScrapperCheerioAdapter";
 import Router from "./shared/infra/http/Router";
 
 (async () => {
