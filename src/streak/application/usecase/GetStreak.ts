@@ -15,9 +15,11 @@ export default class GetStreak {
         const html = await this.client.request(username);
         const dailyContributions = this.webScrapper.dailyContributions(html);
         const dailyContributionList = new DailyContributionList(dailyContributions);
-        const streak = dailyContributionList.currentStreak;
+        const currentStreak = dailyContributionList.currentStreak;
+        const maxStreak = dailyContributionList.maxStreak;
         return {
-            streak
+            currentStreak,
+            maxStreak
         };
     };
 }

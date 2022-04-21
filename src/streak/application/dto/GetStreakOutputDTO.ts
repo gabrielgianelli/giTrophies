@@ -1,3 +1,4 @@
 export default interface GetStreakOutputDTO {
-    streak: number;
+    currentStreak: number;
+    maxStreak: number;
 }
