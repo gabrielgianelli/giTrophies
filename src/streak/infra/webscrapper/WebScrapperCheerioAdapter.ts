@@ -17,7 +17,7 @@ export default class WebScrapperCheerioAdapter implements WebScrapper {
             const [year, month, day] = stringDate.split(GITHUB_CONTRIBUTION_DATE_SEPARATOR);  
             const date = new Date(parseInt(year), parseInt(month)-1, parseInt(day));
             const totalContributions = parseInt($(item).data(GITHUB_CONTRIBUTION_TOTAL));
-            return { date, totalContributions }
+            return new DailyContribution(date, totalContributions);
         })
         .filter(contribution => !!contribution.date.getDate());
         return contributions;

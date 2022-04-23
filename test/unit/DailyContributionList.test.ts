@@ -13,6 +13,7 @@ import twoDaysStreakNoYesterdayTodayTomorrow from './../mocks/TwoDaysStreak-NoYe
 import oneDayStreakNoYesterdayTodayNoTomorrow from './../mocks/OneDayStreak-NoYesterday-Today-NoTomorrow.json';
 import oneDayStreakNoYesterdayNoTodayTomorrow from './../mocks/OneDayStreak-NoYesterday-NoToday-Tomorrow.json';
 import DailyContributionList from '../../src/streak/domain/entity/DailyContributionList';
+import DailyContribution from '../../src/streak/domain/entity/DailyContribution';
 
 describe('Streak Suite Tests', () => {
     let sandbox: SinonSandbox;
@@ -27,10 +28,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get contribution streak, given an ordered list of objects containing date and number of contributions', () => {
         const dailyContributions = twoDayStreak.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -51,10 +52,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get contribution streak including today if the current day already have contributions', () => {
         const dailyContributions = threeDaysStreakIncludingToday.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -66,10 +67,10 @@ describe('Streak Suite Tests', () => {
 
     it('should break the current streak when a day of the sequence is missing', () => {
         const dailyContributions = fourDaysStreakWithMissingDay.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -81,10 +82,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get the max contribution streak, given an ordered list of objects containing date and number of contributions', () => {
         const dailyContributions = sevenDaysMaxStreak.list.map(contribution => (
-            {
-                date: new Date(contribution.date),
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const expected = 7;
@@ -94,10 +95,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get the current streak given a list from an advanced timezone with contributions yesterday, today and tomorrow', () => {
         const dailyContributions = threeDaysStreakYesterdayTodayTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -109,10 +110,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get the current streak given a list from an advanced timezone with contributions yesterday and today, but no one tomorrow', () => {
         const dailyContributions = twoDaysStreakYesterdayTodayNoTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -124,10 +125,10 @@ describe('Streak Suite Tests', () => {
 
     it('should get the current streak given a list from an advanced timezone with contributions yesterday and tomorrow, but no one today', () => {
         const dailyContributions = oneDayStreakYesterdayNoTodayTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -139,10 +140,10 @@ describe('Streak Suite Tests', () => {
     
     it('should get the current streak given a list from an advanced timezone with contributions yesterday, but no one today and tomorrow', () => {
         const dailyContributions = oneDayStreakYesterdayNoTodayNoTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -154,10 +155,10 @@ describe('Streak Suite Tests', () => {
     
     it('should get the current streak given a list from an advanced timezone with contributions today and tomorrow, but no one yesterday', () => {
         const dailyContributions = twoDaysStreakNoYesterdayTodayTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -169,10 +170,10 @@ describe('Streak Suite Tests', () => {
     
     it('should get the current streak given a list from an advanced timezone with contributions today, but no one yesterday and tomorrow', () => {
         const dailyContributions = oneDayStreakNoYesterdayTodayNoTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
@@ -184,10 +185,10 @@ describe('Streak Suite Tests', () => {
     
     it('should get the current streak given a list from an advanced timezone with contributions tomorrow, but no one yesterday and today', () => {
         const dailyContributions = oneDayStreakNoYesterdayNoTodayTomorrow.list.map(contribution => (
-            {
-                date: new Date(contribution.date), 
-                totalContributions: parseInt(contribution.totalContributions)
-            }
+            new DailyContribution (
+                new Date(contribution.date), 
+                parseInt(contribution.totalContributions)
+            )
         ));
         const dailyContributionList = new DailyContributionList(dailyContributions);
         const now = new Date(2022, 3, 1);
